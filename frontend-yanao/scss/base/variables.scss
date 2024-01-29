@@ -1,0 +1,30 @@
+// Fonts
+$font-family-base: 'Montserrat', Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-base-mobile: 14px;
+$line-height-base: 1.5;
+
+// Colors
+$color-base: #5893FB;
+$white-true: #FFFFFF;
+$black-true: #000000;
+$color-black: #202020;
+$color-black-2: #222222;
+$bg-brand: #3B37FF;
+$text-brand: #3D39FF;
+$color-red: red;
+$dark: #202020;
+
+// Breakpoints
+$mobile-small: 350px;
+$mobile-medium: 500px;
+$tablet-size: 768px;
+$desktop-md-size: 1024px;
+$desktop-lg-size: 1280px;
+$desktop-xl-size: 1360px;
+
+// Other
+$line-width: 1.5px;
+$shadow-default: 0 40px 80px rgba($black-true, .05);
+$shadow-default-hover: 0 40px 80px rgba($black-true, .1);
+$img-check: url("data:image/svg+xml,%3Csvg width='21' height='17' viewBox='0 0 21 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 11L5.5 15.5L20 1' stroke='%235893FB' stroke-width='2'/%3E%3C/svg%3E%0A");

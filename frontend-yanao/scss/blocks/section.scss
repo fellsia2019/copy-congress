@@ -1,0 +1,127 @@
+$b: ".section";
+
+#{$b} {
+  @include low-desktop {
+    overflow: hidden;
+  }
+  &_overlap-padding {
+    & + & {
+      #{$b}__inner {
+        padding-top: 0;
+      }
+    }
+  }
+  &_overflow {
+    overflow: hidden;
+  }
+  &__inner {
+    @include inner-wrap;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include low-desktop {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    @include mobile {
+      padding-top: 26px;
+      padding-bottom: 26px;
+    }
+
+    &._no-pb {
+      padding-bottom: 0;
+
+      @include low-desktop {
+        padding-bottom: 0;
+      }
+      @include mobile {
+        padding-bottom: 0;
+      }
+    }
+
+    &._low-padding-top {
+      padding-top: 45px;
+    }
+
+    &-subbanner {
+      padding-bottom: 70px;
+    }
+  }
+  &__title {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 40px;
+    @include low-desktop {
+      font-size: 56px;
+    }
+    @include mobile {
+      font-size: 32px;
+    }
+    &_flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__subtitle {
+    padding-left: 155px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 1px;
+    @include tablet {
+      padding-left: 120px;
+    }
+    @include mobile {
+      padding: 0;
+    }
+    &:before {
+      content: '';
+      width: 116px;
+      height: 2px;
+      background: $bg-brand;
+      left: 0;
+      top: 50%;
+      margin-top: -1px;
+      position: absolute;
+      @include tablet {
+        width: 88px;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  &__button-wrap {
+    display: flex;
+    .button:not(:first-child) {
+      margin-left: 24px;
+    }
+  }
+
+  &__subbanner {
+    text-align: right;
+    margin-left: 150px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+
+    .button_brand {
+      margin-top: 15px;
+      color: #ffffff !important;
+      text-decoration: none !important;
+
+      &:hover {
+        color: $bg-brand !important;
+      }
+    }
+
+    @include tablet {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+}
+

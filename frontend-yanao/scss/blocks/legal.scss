@@ -1,0 +1,220 @@
+$b: ".legal";
+$padding-left: 100px;
+$padding-left-tablet: 60px;
+$padding-left-mobile: 40px;
+
+#{$b} {
+  display: block;
+  font-size: 22px;
+  line-height: 1.6;
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  &-list,
+  &-sublist {
+    counter-reset: item;
+
+    & > li {
+      counter-increment: item;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      & > ol,
+      & > ul {
+        &:not(:first-child) {
+          margin-top: 32px;
+
+          @include mobile {
+            margin-top: 24px;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 32px;
+
+          @include mobile {
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  &-list {
+    & > li {
+      padding-left: $padding-left;
+
+      @include tablet {
+        padding-left: $padding-left-tablet;
+      }
+
+      @include mobile {
+        padding-left: $padding-left-mobile;
+      }
+
+      &::before {
+        content: counters(item, ".") ". ";
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1.5;
+
+        @include mobile {
+          font-size: 24px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 64px;
+
+        @include mobile {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &-sublist {
+    & > li {
+      &::before {
+        content: counters(item, ".") " ";
+        margin-left: -$padding-left;
+        font-weight: 500;
+
+        @include tablet {
+          margin-left: -$padding-left-tablet;
+        }
+
+        @include mobile {
+          margin-left: -$padding-left-mobile;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+
+        @include mobile {
+          margin-bottom: 24px;
+        }
+      }
+
+      p {
+        max-width: 800px;
+
+        &:not(:last-child) {
+          margin-bottom: 24px;
+
+          @include mobile {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    &_bold {
+      & > li {
+        &::before {
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 1.5;
+
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    display: block;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.5;
+    margin: 0 0 32px;
+
+    @include mobile {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  h3 {
+    display: block;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.5;
+    margin: 0 0 32px;
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  ul {
+    li {
+      position: relative;
+      padding-left: 60px;
+
+      @include tablet {
+        padding-left: 40px;
+      }
+
+      @include mobile {
+        padding-left: 26px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.8em;
+        left: 24px;
+        width: 11px;
+        height: 1px;
+        background-color: currentColor;
+
+        @include tablet {
+          left: 10px;
+        }
+
+        @include mobile {
+          left: 0;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+
+        @include mobile {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  li {
+    @include mobile {
+      word-break: break-word;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}

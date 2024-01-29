@@ -1,0 +1,250 @@
+$b: ".typography";
+$font-size: 24px;
+$font-size-mob: 18px;
+$text-gap: 16px;
+$el-gap: 48px;
+$el-gap-mob: 32px;
+
+#{$b} {
+  font-size: $font-size;
+  line-height: 1.4;
+
+  @include low-desktop {
+    font-size: 20px;
+  }
+
+  @include tablet {
+    font-size: $font-size-mob;
+  }
+
+  h2 {
+    @include mobile {
+      word-break: break-word;
+    }
+
+    &:not(.no-typography) {
+      &:not(:first-child) {
+        margin-top: $el-gap;
+
+        @include mobile {
+          margin-top: $el-gap-mob;
+        }
+      }
+    }
+  }
+
+  h3 {
+    @include mobile {
+      word-break: break-word;
+    }
+
+    &:not(.no-typography) {
+      &:not(:first-child) {
+        margin-top: $el-gap;
+
+        @include mobile {
+          margin-top: $el-gap-mob;
+        }
+      }
+    }
+  }
+
+  h4 {
+    &:not(.no-typography) {
+      &:not(:first-child) {
+        margin-top: $el-gap;
+
+        @include mobile {
+          margin-top: $el-gap-mob;
+        }
+      }
+    }
+  }
+
+  p, ul, ol, dl, pre, address, fieldset, figure, table {
+    &:not(.no-typography) {
+      margin: 0 0 $text-gap 0;
+    }
+  }
+
+  *+p, *+ul, *+ol, *+dl, *+pre, *+address, *+fieldset, *+figure, *+table {
+    &:not(.no-typography) {
+      margin-top: $text-gap;
+    }
+  }
+
+  p, ul, ol, dl, pre, address, fieldset, figure, table {
+    &:not(.no-typography) {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    &:not(.no-typography) {
+      color: $bg-brand;
+      text-decoration: underline;
+      transition: color .2s ease;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  ul, ol {
+    &:not(.no-typography) {
+      padding-left: 0;
+      list-style: none;
+
+      & > li {
+        margin-bottom: 32px;
+
+        &:not(:last-child) {
+          margin-bottom: $text-gap;
+        }
+      }
+    }
+  }
+
+  ul {
+    &:not(.no-typography) {
+      & > li {
+        &::before {
+          content: "";
+          width: 24px;
+          height: 1px;
+          background-color: currentColor;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 10px;
+          position: relative;
+
+          @include mobile {
+            height: 1px;
+            width: 16px;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  ol {
+    &:not(.no-typography) {
+      counter-reset: item;
+
+      & > li {
+        position: relative;
+
+        &::before {
+          content: counter(item) '.';
+          counter-increment: item;
+          color: $bg-brand;
+          min-width: 24px;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          @include mobile {
+            min-width: 16px;
+          }
+        }
+      }
+    }
+
+    &._black {
+      &:not(.no-typography) {
+        counter-reset: item;
+
+        & > li {
+          position: relative;
+
+          &::before {
+            font-weight: 500;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    &:not(.no-typography) {
+      display: block;
+
+      &:not(:first-child) {
+        margin-top: $el-gap;
+
+        @include mobile {
+          margin-top: $el-gap-mob;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: $el-gap;
+
+        @include mobile {
+          margin-bottom: $el-gap-mob;
+        }
+      }
+    }
+  }
+
+  &#{$b}-alt {
+    ul {
+      margin-top: 16px;
+
+      li {
+        padding-left: 30px;
+
+        &:before {
+          height: 2px;
+          width: 16px;
+
+          @include tablet {
+            top: 13px;
+
+          }
+        }
+      }
+    }
+  }
+
+  ._note {
+    color: rgba($black-true, 0.5);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  ._bold {
+    font-weight: 600;
+  }
+
+  ._brand-color {
+    color: $bg-brand;
+  }
+
+  ._bold-700 {
+    font-weight: 700;
+  }
+
+  ._black-color {
+    color: #000000
+  }
+
+  &__border {
+    position: relative;
+    margin-bottom: -80px;
+
+    &:before {
+      content: '';
+      height: 2px;
+      background-color: #ffffff;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+    }
+  }
+}

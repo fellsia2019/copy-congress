@@ -1,0 +1,51 @@
+@import "~normalize.css";
+
+// Base
+@import "base/includes";
+@import "base/fonts";
+@import "base/globals";
+@import "base/fonts-styles";
+
+// Elements
+@import "elements/button";
+@import "elements/select";
+@import "elements/tooltip";
+@import "elements/accordion";
+@import "elements/tabs";
+@import "elements/bg";
+@import "elements/u-swiper";
+
+// Layout
+@import "layout/header";
+// footer included from /frontend-yanao/build/footer.html
+
+// Blocks
+@import "blocks/section";
+@import "blocks/top-block";
+@import "blocks/slider";
+@import "blocks/about";
+@import "blocks/program";
+@import "blocks/info";
+@import "blocks/partners";
+@import "blocks/press";
+@import "blocks/location";
+@import "blocks/news";
+@import "blocks/banner";
+@import "blocks/typography";
+@import "blocks/grid";
+@import "blocks/contacts";
+@import "blocks/legal";
+@import "blocks/services-item";
+@import "blocks/steps";
+@import "blocks/graph-work";
+@import "blocks/dropdown";
+@import "blocks/person-card";
+@import "blocks/tags";
+@import "blocks/modal";
+@import "blocks/program-filter";
+@import "blocks/program-item";
+@import "blocks/program-list";
+@import "blocks/page-404";
+@import "blocks/lang-group";
+@import "blocks/partner-contractors";
+@import "blocks/u-custom-table";

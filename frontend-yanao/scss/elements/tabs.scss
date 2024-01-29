@@ -1,0 +1,137 @@
+$b: ".tabs";
+
+#{$b} {
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 155px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 1px;
+    @include tablet {
+      padding-left: 120px;
+    }
+    @include mobile {
+      overflow: auto;
+      margin: 0 -26px;
+      padding: 0 26px 10px 26px;
+    }
+
+    &:before {
+      content: '';
+      width: 116px;
+      height: 2px;
+      background: linear-gradient(to left, #5F93F7, #4F92FF);
+      left: 0;
+      top: 9px;
+      position: absolute;
+      @include tablet {
+        width: 88px;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+    &._decor-alt {
+      padding-left: 0;
+      margin-top: 40px;
+
+      @include mobile {
+        padding-left: 32px;
+      }
+
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        background: #3B37FF;
+        width: 116px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      .tabs__tab {
+        color: $bg-brand;
+      }
+    }
+  }
+
+  &__tab {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include clickable;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    &:not(:last-child) {
+      margin: 0 38px 15px 0;
+    }
+    #{$b}_light &:not(&_active) {
+      opacity: 0.5;
+    }
+    #{$b}_dark &_active {
+      color: $text-brand;
+    }
+  }
+  &__content {
+    padding-top: 50px;
+    @include mobile {
+      padding-top: 30px;
+    }
+  }
+}
+
+.vb > .vb-dragger {
+  z-index: 12;
+  width: 12px;
+  right: 0;
+}
+
+.vb > .vb-dragger > .vb-dragger-styler {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate3d(0,0,0,0);
+  transform: rotate3d(0,0,0,0);
+  -webkit-transition:
+    background-color 100ms ease-out,
+    margin 100ms ease-out,
+    height 100ms ease-out;
+  transition:
+    background-color 100ms ease-out,
+    margin 100ms ease-out,
+    height 100ms ease-out;
+  background-color: rgba(48, 121, 244,.1);
+  margin: 5px 5px 5px 0;
+  border-radius: 20px;
+  height: calc(100% - 10px);
+  display: block;
+}
+
+.vb.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.3);
+}
+
+.vb > .vb-dragger:hover > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+  margin: 0px;
+  height: 100%;
+}
+
+.vb.vb-dragging > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+  margin: 0px;
+  height: 100%;
+}
+
+.vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+}

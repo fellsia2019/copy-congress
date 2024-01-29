@@ -1,0 +1,260 @@
+$b: ".legal";
+$padding-left: 70px;
+$padding-left-tablet: 45px;
+$padding-left-mobile: 35px;
+
+#{$b} {
+  display: block;
+  font-size: 24px;
+  line-height: 1.4;
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  &-list,
+  &-sublist {
+    counter-reset: item;
+
+    & > li {
+      counter-increment: item;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.4;
+
+        @include mobile {
+          font-size: 14px;
+        }
+      }
+
+      & > ol,
+      & > ul {
+        &:not(:first-child) {
+          margin-top: 32px;
+
+          @include mobile {
+            margin-top: 16px;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 32px;
+
+          @include mobile {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  &-list {
+    & > li {
+      padding-left: $padding-left;
+
+      @include tablet {
+        padding-left: $padding-left-tablet;
+      }
+
+      @include mobile {
+        padding-left: $padding-left-mobile;
+      }
+
+      &::before {
+        content: counters(item, ".") ". ";
+        color: $bg-brand;
+        top: 15px;
+
+        @include mobile {
+          top: 10px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 64px;
+
+        @include mobile {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &-sublist {
+    & > li {
+      &::before {
+        content: counters(item, ".") " ";
+        margin-left: -$padding-left;
+        color: rgba($black-true, 0.5);
+        top: 5px;
+
+        @include tablet {
+          margin-left: -$padding-left-tablet;
+        }
+
+        @include mobile {
+          top: 2px;
+          margin-left: -$padding-left-mobile;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+
+        @include mobile {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    &_bold {
+      & > li {
+        &::before {
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 1.5;
+
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    display: block;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.5;
+    color: $bg-brand;
+    margin: 0 0 32px;
+
+    @include mobile {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+  }
+
+  h3 {
+    display: block;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.5;
+    margin: 0 0 32px;
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  h4 {
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.4;
+    font-family: $font-family-base;
+    text-transform: none;
+    margin: 0 0 24px;
+
+    @include mobile {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+  }
+
+  ul {
+    li {
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background-color: currentColor;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        position: relative;
+        top: -2px;
+
+        @include mobile {
+          height: 1px;
+          width: 16px;
+          margin-right: 4px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+
+        @include mobile {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  li {
+    @include mobile {
+      word-break: break-word;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  a:not([class]) {
+    color: $bg-brand;
+    text-decoration: underline;
+
+    &:hover {
+      color: $black-true;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include mobile {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  // .legal--custom
+  &--custom {
+    a[href^="tel"] {
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  img {
+    &.img-mob-full {
+      @include mobile {
+        display: none !important;
+      }
+    }
+  }
+}

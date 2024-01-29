@@ -1,0 +1,60 @@
+$b: ".accordion";
+
+#{$b} {
+  background: $white-true;
+  box-shadow: 0 0 20px rgba($black-true, 0.05);
+  & + & {
+    margin-top: 10px;
+  }
+  &__header {
+    padding: 20px 100px 20px 30px;
+    font-size: 22px;
+    position: relative;
+    font-weight: normal;
+    cursor: pointer;
+    margin: 0;
+    @include mobile {
+      padding: 10px 50px 15px 10px;
+      font-size: 12px;
+    }
+    &:after {
+      position: absolute;
+      content: "+";
+      right: 26px;
+      color: $text-brand;
+      top: 50%;
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: -21px;
+      @include mobile {
+        font-size: 18px;
+        right: 14px;
+        margin: 0;
+        top: 7px;
+      }
+      #{$b}._opened & {
+        content: '-';
+      }
+    }
+  }
+  &__body {
+    margin: 0 30px;
+    padding: 20px 0;
+    border-top: 1px solid rgba($black-true, 0.15);
+    font-size: 16px;
+    @include mobile {
+      font-size: 12px;
+      padding: 10px 0;
+      margin: 0 15px;
+    }
+    p {
+      margin: 0;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+        @include mobile {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

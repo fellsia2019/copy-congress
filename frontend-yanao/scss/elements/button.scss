@@ -1,0 +1,138 @@
+$b: ".button";
+
+#{$b} {
+  appearance: none;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 0 25px;
+  color: $white-true;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  transition: .3s ease;
+  user-select: none;
+  transition-property: color, background-color, border-color, opacity, box-shadow;
+  white-space: nowrap;
+  @include clickable;
+  @include mobile {
+    padding: 0 16px;
+  }
+  @include mobile-small {
+    font-size: 14px;
+  }
+  &_dark {
+    background: $dark;
+    border-color: $dark;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background: $white-true;
+        border-color: $dark;
+        color: $dark;
+        @include svg-color-hover($dark);
+      }
+    }
+  }
+  &_light {
+    background-color: $white-true;
+    border-color: $white-true;
+    color: $bg-brand;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($dark);
+      }
+    }
+  }
+  &_transparent {
+    border: 1px solid rgba($white-true, 0.5);
+    line-height: 58px;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_transparent-dark {
+    border: 1px solid $dark;
+    line-height: 58px;
+    @include svg-color($dark);
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_square {
+    width: 60px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mobile {
+      width: 48px;
+      height: 48px;
+      line-height: 44px;
+    }
+  }
+  &_brand {
+    background: $bg-brand;
+    color: $white-true;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background: $white-true;
+        border-color: $bg-brand;
+        color: $bg-brand;
+        @include svg-color-hover($bg-brand);
+      }
+    }
+  }
+  &_shrink {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  &_multiline {
+    height: auto;
+    line-height: 1.4;
+    min-height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+  }
+  i {
+    display: block;
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  &__section {
+    .button {
+      &:not(:last-child) {
+        margin-right: 30px;
+
+        @include mobile {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

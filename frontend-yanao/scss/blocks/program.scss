@@ -1,0 +1,110 @@
+$b: ".program";
+
+#{$b} {
+  color: #fff;
+  background: $bg-brand url(../assets/img/program-bg.png) 50% 0 no-repeat;
+  background-size: 100% auto;
+  @include low-desktop {
+    background-size: 1360px auto;
+  }
+  @include tablet {
+    background-position: top 0 right -500px;
+  }
+  @include mobile {
+    background-position: top 0 right -800px;
+  }
+  &__text {
+    font-size: 24px;
+    font-weight: 600;
+    max-width: 950px;
+    @include mobile {
+      font-size: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .button {
+      margin-top: 80px;
+      min-width: 210px;
+
+      @include mobile {
+        min-width: auto;
+        width: 100%;
+        margin-top: 16px;
+        white-space: pre-wrap;
+        height: auto;
+        line-height: 22px;
+        padding: 18px 16px;
+      }
+    }
+  }
+  &__slider {
+    position: relative;
+    .slider {
+      padding-bottom: 120px;
+      @include mobile {
+        padding-bottom: 90px;
+      }
+    }
+    #{$b}__button {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 210px;
+      z-index: 1;
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  &__slide {
+    //background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 5.24%, rgba(255, 255, 255, 0.01) 100%);
+    //backdrop-filter: blur(40px);
+    background: rgba($bg-brand, 0.8);
+    border-radius: 5px;
+    position: relative;
+    color: $white-true;
+    @include tablet-min {
+      &:hover {
+        background: $white-true;
+        color: $bg-brand;
+        transition: all 0.3s;
+      }
+      @include svg-color-hover($bg-brand);
+    }
+    @include tablet {
+      background: $white-true;
+      color: $bg-brand;
+    }
+    &-inner {
+      display: block;
+      padding: 43px 28px;
+      height: 100%;
+      background: rgba($white-true, 0.05);
+      border-radius: 5px;
+      text-decoration: none;
+      @include mobile {
+        padding: 42px 24px;
+      }
+    }
+    &-image {
+      height: 110px;
+      margin: 0 0 50px 0;
+      @include svg-color($white-true);
+      @include tablet {
+        @include svg-color($bg-brand);
+      }
+      @include mobile {
+        margin-bottom: 30px;
+      }
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 0;
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+  }
+}

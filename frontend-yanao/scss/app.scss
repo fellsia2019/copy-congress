@@ -1,0 +1,41 @@
+@import "~normalize.css";
+
+// Base
+@import "base/includes";
+@import "base/fonts";
+@import "base/globals";
+
+// Elements
+@import "elements/button";
+@import "elements/select";
+@import "elements/tooltip";
+@import "elements/accordion";
+@import "elements/tabs";
+
+// Layout
+@import "layout/header";
+@import "layout/footer";
+
+// Blocks
+@import "blocks/top-block";
+@import "blocks/section";
+@import "blocks/slider";
+@import "blocks/about";
+@import "blocks/program";
+@import "blocks/info";
+@import "blocks/partners";
+@import "blocks/press";
+@import "blocks/location";
+@import "blocks/news";
+@import "blocks/banner";
+@import "blocks/typography";
+@import "blocks/grid";
+@import "blocks/contacts";
+@import "blocks/legal";
+@import "blocks/services-item";
+@import "blocks/steps";
+@import "blocks/graph-work";
+@import "blocks/dropdown";
+@import "blocks/person-card";
+@import "blocks/tags";
+@import "blocks/modal";

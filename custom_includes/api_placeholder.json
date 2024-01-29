@@ -1,0 +1,78 @@
+{
+    "ITEMS": [
+        {
+            "location": "Мурманск",
+            "date": "13 апреля",
+            "time": "10:00-12:00",
+            "slots_left": 12,
+            "image": "/frontend/assets/img/excursions-01.jpg",
+            "partners": ["/frontend/assets/img/excursion-logo-01.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "Атомный ледокол Ленин",
+            "text": "Вы подниметесь на борт первого в мире атомного ледокола «Ленин» и посетите интерактивный музейный комплекс «Атом и Арктика». Компанию вам составит профессиональный историк флота.",
+            "url": "/excursions/01"
+        },
+        {
+            "location": "Санкт-Петербург",
+            "date": "25 апреля",
+            "time": "12:00-15:00",
+            "slots_left": 20,
+            "image": "/frontend/assets/img/excursions-02.jpg",            
+            "partners": ["/frontend/assets/img/excursion-logo-02.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "Музей железных дорог России",
+            "text": "Вы подниметесь на борт первого в мире атомного ледокола «Ленин» и посетите интерактивный музейный комплекс «Атом и Арктика». Компанию вам составит профессиональный историк флота.",
+            "url": "/excursions/02"
+        },
+        {
+            "location": "Набережные Челны",
+            "date": "05 мая",
+            "time": "09:00-12:00",
+            "slots_left": 15,
+            "image": "/frontend/assets/img/excursions-03.jpg",
+            "partners": ["/frontend/assets/img/excursion-logo-03.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "Детский технопарк «Кванториум»",
+            "text": "Экскурсия для детей взрослых по интерактивной научно- технической выставке и захватывающие мастер-классы.",
+            "url": "/excursions/03"
+        },
+        {
+            "location": "Московская область",
+            "date": "10 июня",
+            "time": "12:00-15:00",
+            "slots_left": 2,
+            "image": "/frontend/assets/img/excursions-04.jpg",
+            "partners": ["/frontend/assets/img/excursion-logo-04.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "Сортировочный центр Почты&nbsp;России",
+            "text": "Во время экскурсии вы загляните в один из крупнейших логистических центров Почты России и узнаете, что происходит с вашей посылкой, когда она поступает на сортировку",
+            "url": "/excursions/04"
+        },
+        {
+            "location": "Москва",
+            "date": "12 июня",
+            "time": "10:00-12:00",
+            "slots_left": 0,
+            "image": "/frontend/assets/img/excursions-05.jpg",            
+            "partners": ["/frontend/assets/img/excursion-logo-05.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "МГУ имени М.В. Ломоносова с посещением смотровой",
+            "text": "Попасть в МГУ им. М.В. Ломоносова очень сложно. Но участники Десятилетия науки и технологий могут не просто побывать в одном из центров науки, но и полюбоваться видами Москвы с высоты 24 этажа.",
+            "url": "/excursions/05"
+        },
+        {
+            "location": "Казань",
+            "date": "25 июня",
+            "time": "21:00-23:00",
+            "slots_left": 0,
+            "image": "/frontend/assets/img/excursions-06.jpg",
+            "partners": ["/frontend/assets/img/excursion-logo-06.png", "/frontend/assets/img/excursion-logo.svg"],
+            "title": "Астрономическая обсерватория",
+            "text": "Вы узнаете, как рождаются и умирают звезды и галактики, заглянете в несколько телескопов. Один из них - Рефрактор, -самый мощный действующий визуальный телескоп в России, и ему уже более 100 лет.",
+            "url": "/excursions/06"
+        }
+    ],
+    "PAGINATOR": {
+        "NavNum": 1,
+        "NavPageNomer": 1,
+        "NavPageCount": 94,
+        "NavRecordCount": 561,
+        "NavPageSize": 6
+    },
+    "NEXT_URL": "/custom_includes/api_placeholder.php"
+}

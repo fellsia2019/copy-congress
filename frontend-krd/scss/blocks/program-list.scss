@@ -1,0 +1,13 @@
+$b: ".program-list";
+
+#{$b} {
+  & > li {
+    &:not(:last-child) {
+      margin-bottom: 64px;
+
+      @include mobile {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

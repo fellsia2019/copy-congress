@@ -1,0 +1,17 @@
+$b: ".bg";
+
+#{$b} {
+  &-edges {
+    position: relative;
+
+    &:before {
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      background-image: url("/frontend-krd/assets/img/background/bg-edges.png");
+      right: 0;
+      width: 1360px;
+      height: 856px;
+    }
+  }
+}

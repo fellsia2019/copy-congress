@@ -1,0 +1,133 @@
+$b: ".top-block";
+$actionsGap: 8px;
+
+#{$b} {
+  background-color: $bg-brand;
+  background-image: url(../assets/img/top-banner/bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /*
+  если используется переменная, то на iPhone верхний padding оказывается слишком маленьким
+  https://drive.google.com/file/d/1-88kVL9i9SR7uZfiNaC43b0KqO3YaS8c/view
+  */
+  padding-top: 372px;//var(--header-height);
+  color: $white-true;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+
+  &__banner {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    @include mobile {
+      text-align: left;
+      justify-content: stretch;
+      align-items: stretch;
+    }
+    &-text {
+      width: 100%;
+      max-width: 100%;
+    }
+    h2 {
+      font-size: 96px;
+      font-family: $font-family-heading;
+      line-height: 100%;
+      margin-bottom: 32px;
+      max-width: 1000px;
+      margin-left: auto;
+      @include low-desktop {
+        font-size: 56px;
+        line-height: 1.2;
+      }
+      @include mobile {
+        font-size: 44px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+      }
+    }
+    p {
+      font-size: 32px;
+      margin-bottom: 32px;
+      line-height: 140%;
+
+      @include tablet {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+    .button {
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  &__banner-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include mobile {
+      justify-content: stretch;
+      flex-wrap: wrap;
+    }
+
+    & > * {
+      &:not(:last-child) {
+        margin-right: 16px;
+
+        @include mobile {
+          margin-bottom: 16px;
+          margin-right: 0;
+        }
+      }
+
+      @include mobile {
+        width: 100%;
+        flex: 1 1 auto;
+      }
+    }
+  }
+  &__anketa-button {
+    width: 100%;
+    margin-top: 20px;
+    display: none;
+    @include mobile {
+      margin-top: 16px;
+      display: block;
+    }
+  }
+  &__actions {
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -#{$actionsGap};
+      justify-content: flex-end;
+    }
+    &-item {
+      padding: $actionsGap;
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+    &-link {
+      @include mobile {
+        width: 100%;
+        height: auto !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+        padding: 10px 10px !important;
+      }
+    }
+  }
+}

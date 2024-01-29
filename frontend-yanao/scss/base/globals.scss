@@ -1,0 +1,435 @@
+[v-cloak] {
+  display: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: $white-true;
+  position: relative;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: 400;
+  color: $dark;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include mobile {
+    font-size: $font-size-base-mobile;
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
+    -ms-touch-action: none;
+  }
+}
+
+._lock {
+  height: 100%;
+  overflow: hidden;
+}
+
+.g-wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  display: block;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: optimize-contrast; /* CSS3 Proposed */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+ */
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input {
+  background: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+// Fix ios zoom
+@supports (-webkit-touch-callout: none) {
+  select,
+  textarea,
+  input {
+    font-size: 16px !important;
+  }
+}
+
+video {
+  outline: none;
+  background-color: $black-true;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  color: inherit;
+  margin: 0 0 24px;
+
+  @include low-desktop {
+    font-size: 56px;
+  }
+  @include mobile {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.6;
+  color: inherit;
+  margin: 0 0 24px;
+
+  @include mobile {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.6;
+  color: inherit;
+  margin: 0 0 24px;
+
+  @include mobile {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.6667;
+  text-transform: uppercase;
+  color: inherit;
+  margin: 0 0 24px;
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+}
+
+.g-hidden {
+  display: none !important;
+}
+
+.g-hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.g-visible-mobile {
+  @include mobile-min {
+    display: none !important;
+  }
+}
+
+.g-hidden-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.g-hidden-tablet-only {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.g-visible-tablet {
+  @include tablet-min {
+    display: none !important;
+  }
+}
+
+.g-visible-tablet-only {
+  @include tablet-min {
+    display: none !important;
+  }
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.g-hidden-low {
+  @include low-desktop {
+    display: none !important;
+    ._active-toggle & {
+      display: block !important;
+    }
+  }
+}
+
+.g-visible-low {
+  @include low-desktop-min {
+    display: none !important;
+  }
+}
+
+.g-toggle-container {
+  &._active-toggle {
+    .g-hidden-el {
+      display: block;
+    }
+  }
+  .g-hidden-el {
+    display: none;
+  }
+}
+
+.error-text {
+  color: $color-red;
+}
+
+// Safari bug fix
+.cool-lightbox-thumbs {
+  -webkit-overflow-scrolling: touch;
+}
+.cool-lightbox.cool-lightbox--thumbs-bottom .cool-lightbox-thumbs {
+  height: 75px;
+}
+
+.inline-svg {
+  display: inline-block;
+  svg {
+    display: inline-block;
+  }
+}
+
+.g-color-blue {
+  color: $bg-brand;
+}
+
+.g-underline {
+  border-bottom: 2px solid rgba(32, 32, 32, 0.1);
+  padding-bottom: 0.666667em;
+}
+
+.g-dash-list {
+  padding: 0;
+
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  li {
+    position: relative;
+    padding-left: 30px;
+
+    @include mobile {
+      padding-left: 26px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 2px;
+      background-color: $bg-brand;
+      position: absolute;
+      top: 0.8em;
+      left: 0;
+
+      @include mobile {
+        width: 12px;
+      }
+    }
+  }
+}
+
+.g-list-mobile-col-1-2 {
+  column-count: 2;
+  column-gap: 32px;
+
+  @include mobile {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  li {
+    break-inside: avoid;
+
+    // For safari
+    @supports (-webkit-touch-callout: none) {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.g-list-tablet-col-1-2 {
+  column-count: 2;
+  column-gap: 32px;
+
+  @include tablet {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  li {
+    break-inside: avoid;
+
+    // For safari
+    @supports (-webkit-touch-callout: none) {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.g-lead {
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 600;
+
+  @include mobile {
+    font-size: 16px;
+  }
+
+  &:not(:first-child) {
+    margin-top: 40px;
+
+    @include mobile {
+      margin-top: 32px;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+
+    @include mobile {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.g-line-top {
+  display: block;
+  padding-top: 24px;
+  border-top: 3px solid $bg-brand;
+}
+
+.g-standard-text {
+  font-size: 16px;
+  line-height: 1.6;
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.g-medium-weight {
+  font-weight: 500;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.g-table-no-border {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0;
+
+  th, td {
+    text-align: left;
+    padding: 0;
+    border: 0;
+
+    &:not(:last-child) {
+      padding-right: 24px;
+    }
+  }
+
+  tr {
+    &:not(:last-child) {
+      th, td {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.g-inherit-style-link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ol:not(class) {
+  list-style: none;
+  counter-reset: numCounter;
+
+  li {
+    position: relative;
+    padding-left: 30px;
+    list-style: none;
+
+    &::before {
+      counter-increment: numCounter;
+      content:counter(numCounter);
+      position: absolute;
+      left: 0;
+    }
+  }
+}

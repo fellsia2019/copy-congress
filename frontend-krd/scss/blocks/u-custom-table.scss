@@ -1,0 +1,40 @@
+$b: '.u-custom-table';
+
+#{$b} {
+
+  // .u-custom-table__wrapper
+  &__wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    -webkit-text-size-adjust: 100%;
+    border: 1px solid $bg-brand;
+    text-align: center;
+
+    @include mobile-min {
+      table-layout: fixed;
+    }
+
+    tr {
+      &:first-child {
+        td,
+        th {
+          background-color: $bg-brand;
+          color: $white-true;
+        }
+      }
+    }
+
+    td {
+      padding: 5px 10px;
+      min-width: 150px;
+    }
+  }
+}

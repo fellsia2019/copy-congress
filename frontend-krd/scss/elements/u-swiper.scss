@@ -1,0 +1,130 @@
+$b: ".u-swiper-controls";
+
+#{$b} {
+  width: 117px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white-true;
+  border-radius: 57.5px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &--primary {
+    border: 1px solid $bg-brand;
+    background-color: transparent;
+  }
+
+  // .u-swiper-controls__btn
+  &__btn {
+    width: 40px;
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-position: center;
+      background-size: 7px auto;
+      background-repeat: no-repeat;
+    }
+
+    // .u-swiper-control__btn--prev
+    &--prev {
+      &::after {
+        background-image: url('/frontend-krd/assets/img/swiper/arr-swiper-left.svg');
+
+        #{$b}--primary & {
+          background-image: url('/frontend-krd/assets/img/swiper/arr-swiper-left-blue.svg');
+        }
+      }
+    }
+
+    // .u-swiper-control__btn--next
+    &--next {
+      &::after {
+        background-image: url('/frontend-krd/assets/img/swiper/arr-swiper-right.svg');
+
+        #{$b}--primary & {
+          background-image: url('/frontend-krd/assets/img/swiper/arr-swiper-right-blue.svg');
+        }
+      }
+    }
+
+    // .u-swiper-control__btn--is-disabled
+    &--is-disabled {
+      opacity: 0.3;
+      @include mobile-min {
+        cursor: default;
+      }
+    }
+
+  }
+
+  // .u-swiper-controls__count
+  &__count {
+    display: flex;
+    font-family: $font-family-inter;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: $black-true;
+    width: auto !important;
+
+    #{$b}--primary & {
+      color: $bg-brand;
+    }
+  }
+}
+
+
+$c: '.u-swiper-pagination';
+#{$c} {
+  display: inline-flex;
+  align-items: center;
+
+  // .u-swiper-pagination__bullet
+  &__bullet {
+    display: block;
+    width: 7px;
+    height: 7px;
+    max-width: 3px;
+    max-height: 3px;
+    border-radius: 50%;
+    background-color: $black-true;
+    opacity: 0.7;
+
+    // .u-swiper-pagination__bullet-v2
+    &-v2 {
+      @extend #{$c}__bullet;
+      background-color: $white-true;
+      max-width: 4px;
+      max-height: 4px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &--is-active {
+      max-width: 7px;
+      max-height: 7px;
+      opacity: 1;
+
+      &#{$c}__bullet-v2 {
+        background-color: $color-primary-2;
+        max-width: 4px;
+        max-height: 4px;
+      }
+    }
+  }
+}

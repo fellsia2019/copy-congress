@@ -1,0 +1,6 @@
+<% Object.entries(htmlWebpackPlugin.files.chunks).forEach(([key, value]) => { %>
+    <% value.css.map(href => { %>
+        <link rel="stylesheet" type="text/css" href="<%= href %>">
+    <% }) %>
+    <script src="<%= value.entry %>"></script>
+<% }) %>

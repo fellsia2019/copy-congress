@@ -1,0 +1,7 @@
+@function px2vw($px, $baseW: $desktop-xl-size) {
+  @if $px == 0 or $px == none or $px == auto or $px == unset {
+    @return $px;
+  } @else {
+    @return ($px / ($baseW / 100)) * 1vw;
+  }
+}

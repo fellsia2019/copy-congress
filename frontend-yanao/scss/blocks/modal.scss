@@ -1,0 +1,224 @@
+$b: ".modal";
+
+#{$b} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: rgba(59, 55, 255, 0.95);
+  z-index: 5;
+  overflow: auto;
+  padding: 140px 0 25px;
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+
+    @include low-desktop {
+      width: 100%;
+      margin: 0 45px;
+    }
+
+    @include tablet {
+      margin: 0 30px;
+    }
+
+    @include mobile {
+      margin: 0 15px;
+    }
+
+    &._bottom-shadow {
+      &::before {
+        background-color: #ffffff;
+        bottom: 0;
+        left: 0;
+        content: '';
+        display: block;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        z-index: 10;
+
+        @include low-desktop {
+          display: none;
+        }
+      }
+    }
+    &._top-shadow {
+      &::after {
+        background-color: #ffffff;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        pointer-events: none;
+        position: absolute;
+        width: 100%;
+        height: 104px;
+        z-index: 10;
+
+        @include low-desktop {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 854px;
+    top: 0;
+    position: relative;
+    height: 100%;
+
+    @include low-desktop {
+      width: auto;
+      height: auto;
+      margin: 0 25px;
+      padding-bottom: 15px;
+    }
+
+    @include mobile {
+      margin: 0;
+    }
+
+    &._no-bar {
+      height: max-content;
+    }
+
+    #{$b}__description {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__content {
+    padding: 104px 40px 40px;
+    background-color: #ffffff;
+    position: relative;
+    width: calc(100% + 19px) !important;
+    box-sizing: border-box !important;
+
+    @include low-desktop {
+      width: 100% !important;
+      padding: 190px 15px 35px;
+    }
+
+    &-video {
+      width: 100% !important;
+      padding: 40px;
+      position: relative;
+
+      @include low-desktop {
+        padding: 100px 15px 15px;
+      }
+
+      &._16x9 {
+        @include aspect-ratio(16, 9);
+      }
+
+      iframe {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        display: block;
+
+        @include low-desktop {
+          top: 100px;
+          left: 15px;
+          width: calc(100% - 30px);
+          height: calc(100% - 100px);
+        }
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: -75px;
+    left: 40px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 11;
+    background-color: white;
+
+    @include low-desktop {
+      top: 15px;
+      left: 65px;
+    }
+
+    @include mobile {
+      left: 15px;
+    }
+  }
+
+  &__description {
+    @include low-desktop {
+      margin-bottom: 30px;
+    }
+
+    &-name {
+      font-size: 24px;
+      font-weight: 700;
+
+      @include low-desktop {
+        line-height: 30px;
+      }
+    }
+
+    &-position {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+  }
+
+  ul {
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  &__close {
+    position: absolute;
+    right: -68px;
+    top: 0;
+    cursor: pointer;
+
+    @include low-desktop {
+      top: 15px;
+      right: 40px;
+    }
+
+    @include mobile {
+      right: 15px;
+    }
+
+    &-button {
+      border-radius: 5px;
+      width: 60px;
+      height: 60px;
+      background-color: #000000;
+    }
+
+    &-icon {
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    margin-right: 45px;
+  }
+}
+
+.figures {
+  &._z-index-up {
+    z-index: 3;
+  }
+}

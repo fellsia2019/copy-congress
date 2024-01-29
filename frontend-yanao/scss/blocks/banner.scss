@@ -1,0 +1,117 @@
+$b: ".banner";
+
+#{$b} {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: $bg-brand;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  color: $white-true;
+
+  @include mobile {
+    height: 500px;
+  }
+
+  &_small {
+    height: 400px;
+  }
+
+  &_medium {
+    height: 730px;
+
+    @include mobile {
+      height: 560px;
+    }
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__slashs {
+    position: absolute;
+    top: 175px;
+    left: 20%;
+
+    @include low-desktop {
+      top: 234px;
+      left: 5%;
+    }
+
+    @include tablet {
+      top: 290px;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__content {
+    text-align: right;
+  }
+
+  &__title {
+    display: block;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+
+    @include low-desktop {
+      font-size: 56px;
+      line-height: 1.2;
+    }
+    @include mobile {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include mobile {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__subtitle {
+    display: block;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.6;
+    margin-left: auto;
+
+    @include low-desktop {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    @include mobile {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+
+        @include mobile {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  &__anketa-button {
+    display: none;
+    width: 100%;
+    @include mobile {
+      display: block;
+    }
+  }
+}

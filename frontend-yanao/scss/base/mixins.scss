@@ -1,0 +1,301 @@
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($path+".eot");
+    src: url($path+".eot?#iefix") format("embedded-opentype"), url($path+".woff")
+        format("woff"), url($path+".ttf") format("truetype"), url($path+".svg##{$font-name}")
+        format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin mobile-small {
+  @media (max-width: $mobile-small - 1px) { @content; }
+}
+
+@mixin mobile-medium {
+  @media (max-width: $mobile-medium - 1px) { @content; }
+}
+
+@mixin mobile-medium-only {
+  @media (min-width: $mobile-medium) and (max-width: $tablet-size - 1px) { @content; }
+}
+
+@mixin mobile-medium-min {
+  @media (min-width: $mobile-medium) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: $tablet-size - 1px) { @content; }
+}
+
+@mixin mobile-min {
+  @media (min-width: $tablet-size) { @content; }
+}
+
+@mixin tablet {
+  @media (max-width: $desktop-md-size - 1px) { @content; }
+}
+
+@mixin tablet-only {
+  @media (min-width: $tablet-size) and (max-width: $desktop-md-size - 1px) { @content; }
+}
+
+@mixin tablet-min {
+  @media (min-width: $desktop-md-size) { @content; }
+}
+
+@mixin low-desktop {
+  @media (max-width: $desktop-lg-size - 1px) { @content; }
+}
+
+@mixin low-desktop-only {
+  @media (min-width: $desktop-md-size) and (max-width: $desktop-lg-size - 1px) { @content; }
+}
+
+@mixin low-desktop-min {
+  @media (min-width: $desktop-lg-size) { @content; }
+}
+
+@mixin desktop-medium {
+  @media (max-width: $desktop-xl-size - 1px) { @content; }
+}
+
+@mixin desktop-medium-only {
+  @media (min-width: $desktop-lg-size) and (max-width: $desktop-xl-size - 1px) { @content; }
+}
+
+@mixin desktop-medium-min {
+  @media (min-width: $desktop-xl-size) { @content; }
+}
+
+// @TODO: adjust desktop mixins
+@mixin desktop {
+  @media (max-width: $desktop-xl-size - 1px) { @content; }
+}
+
+@mixin desktop-only {
+  @media (min-width: $desktop-lg-size) and (max-width: $desktop-xl-size - 1px) { @content; }
+}
+
+@mixin desktop-min {
+  @media (min-width: $desktop-xl-size) { @content; }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin clickable() {
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+@mixin full-abs() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin bg-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin remove-cross {
+  background-color: transparent;
+  border: none;
+  color: $text-brand;
+  width: 8px;
+  max-width: 8px;
+  height: 8px;
+  padding: 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -1px;
+    background-color: $text-brand;
+    width: 10px;
+    height: 2px;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+// Paddings and Margins
+$max: 60;
+$offset: 4;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName, $size) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i + $size} {
+      #{$styleName}: #{$i + $unit} !important;
+    }
+    $i: $i + $offset;
+  }
+}
+
+@mixin link-reset {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  text-decoration: none;
+  outline: none;
+  border-radius: 0;
+
+  &:hover,
+  &:focus,
+  &:focus-within,
+  &:active {
+    border: none;
+    background: none;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+@mixin transitioned($prop: 'all', $func: 'ease', $timing: '.2s') {
+  -webkit-transition: #{$prop} #{$func} #{$timing};
+  -moz-transition: #{$prop} #{$func} #{$timing};
+  -ms-transition: #{$prop} #{$func} #{$timing};
+  -o-transition: #{$prop} #{$func} #{$timing};
+  transition: #{$prop} #{$func} #{$timing};
+}
+
+@mixin responsive($prop, $desktop, $medium-desktop: $desktop, $low-desktop: $desktop, $tablet: $desktop, $mobile: $desktop, $important: false) {
+  $important-rule: '';
+  @if ($important) {
+    $important-rule: ' !important';
+  }
+
+  #{$prop}: #{$desktop} #{$important-rule};
+
+  @include desktop {
+    #{$prop}: px2vw($medium-desktop, $desktop-lg-size)#{$important-rule};
+  }
+
+  @include low-desktop {
+    #{$prop}: px2vw($low-desktop, $desktop-md-size)#{$important-rule};
+  }
+
+  @include tablet {
+    #{$prop}: px2vw($tablet, $tablet-size)#{$important-rule};
+  }
+
+  @include mobile {
+    #{$prop}: px2vw($mobile, $mobile-size)#{$important-rule};
+  }
+}
+
+@mixin inner-wrap {
+  width: 100%;
+  max-width: 1360px;
+  padding-right: 80px;
+  padding-left: 80px;
+  margin: 0 auto;
+  @include low-desktop {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include mobile {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @include mobile-small {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@mixin stroke-text {
+  @supports (-webkit-text-stroke: 1.5px $white-true) {
+    -webkit-text-stroke: 1.5px $white-true;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin svg-color($color: $dark) {
+  svg {
+    circle, polygon, path, rect, ellipse {
+      transition: all 0.3s;
+      &[stroke] {
+        stroke: $color;
+      }
+      &[fill] {
+        fill: $color;
+      }
+    }
+  }
+}
+@mixin svg-color-hover($color: $bg-brand) {
+  &:hover {
+    svg {
+      circle, polygon, path, rect, ellipse {
+        &[stroke] {
+          stroke: $color;
+        }
+        &[fill] {
+          fill: $color;
+        }
+      }
+    }
+  }
+}
+
+@mixin aspect-ratio($width: 1, $height: $width, $pseudo: true) {
+  @if $pseudo {
+    &::after {
+      content: '';
+      display: block;
+      padding-top: calc(1 / ($width / $height) * 100%);
+    }
+  }
+
+  @else {
+    display: block;
+    padding-top: calc(1 / ($width / $height) * 100%);
+  }
+}

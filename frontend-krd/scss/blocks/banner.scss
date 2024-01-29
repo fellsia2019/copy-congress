@@ -1,0 +1,150 @@
+$b: ".banner";
+
+#{$b} {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: $bg-brand;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  color: $white-true;
+
+  &_small {
+    min-height: 400px;
+  }
+
+  &_medium {
+    min-height: 730px;
+
+    @include mobile {
+      height: 560px;
+    }
+  }
+
+  &--program {
+    @include mobile {
+      min-height: 700px;
+    }
+  }
+
+  #{$b}__inner {
+    position: relative;
+    padding-top: var(--header-height);
+    padding-bottom: 64px;
+
+    @include mobile {
+      padding-bottom: 48px;
+    }
+  }
+
+  &__slashs {
+    position: absolute;
+    top: 175px;
+    left: 20%;
+
+    @include low-desktop {
+      top: 234px;
+      left: 5%;
+    }
+
+    @include tablet {
+      top: 290px;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__content {
+    text-align: right;
+
+    @include mobile {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    display: block;
+    font-size: 94px;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+
+    @include low-desktop {
+      font-size: 56px;
+      line-height: 1.2;
+    }
+    @include mobile {
+      font-size: 40px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+
+      @include mobile {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  &__subtitle {
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.4;
+    margin-left: auto;
+
+    @include low-desktop {
+      font-size: 18px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+
+        @include mobile {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+  &__buttons {
+    margin-top: 24px;
+
+    // .banner__buttons--group
+    &--group {
+      @include mobile {
+        display: block;
+      }
+
+      & > a,
+      & > button {
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+        @include mobile {
+          width: 100%;
+          &:not(:last-child) {
+            margin: 0 0 15px 0;
+          }
+        }
+      }
+    }
+  }
+  &__anketa-button {
+    display: none;
+    width: 100%;
+    @include mobile {
+      display: block;
+    }
+  }
+}

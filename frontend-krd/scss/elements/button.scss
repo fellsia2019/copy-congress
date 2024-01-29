@@ -1,0 +1,211 @@
+$b: ".button";
+
+#{$b} {
+  appearance: none;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 0 14px;
+  color: $white-true;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: .3s ease;
+  user-select: none;
+  transition-property: color, background-color, border-color, opacity, box-shadow;
+  white-space: nowrap;
+  @include clickable;
+  @include mobile {
+    height: 32px;
+    line-height: 30px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+  @include mobile-small {
+    font-size: 14px;
+  }
+  &_dark {
+    background: $dark;
+    border-color: $dark;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background: $white-true;
+        border-color: $dark;
+        color: $dark;
+        @include svg-color-hover($dark);
+      }
+    }
+  }
+  &_light {
+    background-color: $white-true;
+    border-color: $white-true;
+    color: $bg-brand;
+    @include svg-color($bg-brand);
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_transparent {
+    border: 1px solid $bg-brand;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_transparent-light {
+    border: 1px solid $white-true;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($dark);
+      }
+    }
+  }
+  &_transparent-colored {
+    border: 1px solid $bg-brand;
+    color: $bg-brand;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($dark);
+      }
+    }
+  }
+  &_transparent-dark {
+    border: 1px solid $dark;
+    @include svg-color($dark);
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_square {
+    width: 60px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mobile {
+      width: 48px;
+      height: 48px;
+      line-height: 44px;
+    }
+  }
+  &_disk {
+    width: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mobile {
+      width: 48px;
+      height: 48px;
+      line-height: 44px;
+    }
+  }
+  &_brand {
+    background: $bg-brand;
+    color: $white-true;
+
+    @include tablet-min {
+      &:not(#{$b}_no-hover-color):hover {
+        background-color: $dark;
+        border-color: $dark;
+        color: $white-true;
+        @include svg-color-hover($white-true);
+      }
+    }
+  }
+  &_shrink {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  &_multiline {
+    height: auto;
+    line-height: 1.4;
+    min-height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+  }
+  &_expanded {
+    padding: 0 18px;
+  }
+
+  &_white-true{
+    background-color: $white-true;
+    border-color: $white-true;
+    color: $dark;
+  }
+
+  i {
+    display: block;
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  &__section {
+    display: flex;
+    .button {
+      &:not(:last-child) {
+        margin-right: 15px;
+
+        @include mobile {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &--wrap {
+      flex-wrap: wrap;
+
+      .button {
+
+        @include tablet {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 8px;
+          height: 32px !important;
+          padding-top: 3px !important;
+          padding-bottom: 3px !important;
+          line-height: 1;
+        }
+
+        @include mobile {
+          margin-top: 16px ;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

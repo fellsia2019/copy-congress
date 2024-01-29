@@ -1,0 +1,82 @@
+$b: ".services-item";
+
+#{$b} {
+  padding: 32px 0 48px;
+  border-bottom: 2px solid rgba(32, 32, 32, 0.1);
+  max-width: 891px;
+
+  &__content {
+    a {
+      cursor: pointer;
+      color: rgba(32, 32, 32, 1) !important;
+    }
+  }
+
+  &__footer {
+    &-date {
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 24px;
+    }
+
+    &-note {
+      margin-top: 16px;
+      color: rgba(32, 32, 32, 0.5);
+      font-size: 16px;
+    }
+
+    &-file {
+      margin-top: 24px;
+      display: flex;
+
+      &_format {
+        background-color: #FF5353;
+        border-radius: 3px;
+        padding: 2px 5px;
+        font-size: 12px;
+        line-height: 20px;
+        margin-right: 12px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      a {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(32, 32, 32, 1) !important;
+        text-decoration: underline !important;
+
+        &:hover {
+          text-decoration: none !important;
+
+        }
+      }
+    }
+
+    &-contacts {
+      font-size: 16px;
+      margin-top: 24px;
+      font-weight: 600;
+
+      &_mail {
+        display: flex;
+        margin-top: 8px;
+
+        div {
+          font-size: 12px;
+          margin-right: 5px;
+        }
+
+        a {
+          font-size: 12px;
+          text-transform: uppercase;
+          text-decoration: underline !important;
+
+          &:hover {
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+}

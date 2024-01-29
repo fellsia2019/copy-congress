@@ -1,0 +1,342 @@
+$b: ".program-item";
+$c: ".program-person";
+
+#{$b} {
+  border-top: 2px solid rgba($black-true, 0.1);
+  padding-top: 32px;
+
+  &__title {
+    font-family: $font-family-heading;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+
+    @include tablet {
+      font-size: 26px;
+      line-height: 1.1;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+
+      @include tablet {
+        margin-bottom: 16px;
+      }
+    }
+
+    &-data {
+      display: flex;
+      position: relative;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.4;
+      padding-left: 20px;
+      margin-right: 24px;
+
+      @include tablet {
+        margin: 0;
+      }
+
+      @include mobile {
+        font-size: 14px;
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 14px;
+        height: 14px;
+        left: 0;
+        top: 4px;
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='6' stroke='%23003DFF' stroke-width='1.5' stroke-miterlimit='10'/%3E%3Cpath d='M7 4.66675V7.33341L9 9.33341' stroke='%23003DFF' stroke-width='1.5' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+      }
+    }
+
+    &-divider {
+      margin: 0 0.2em;
+    }
+
+    &-address {
+      font-size: 16px;
+      position: relative;
+      padding-left: 20px;
+
+      @include mobile {
+        font-size: 14px;
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 50%;
+        width: 10px;
+        height: 15px;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.03995 6.7C4.2409 6.7 3.5617 6.01429 3.5617 5.15714C3.5617 4.3 4.20095 3.61429 5.03995 3.61429C5.83901 3.61429 6.5182 4.3 6.5182 5.15714C6.5182 6.01429 5.83901 6.7 5.03995 6.7ZM7.83664 2.24286C7.07754 1.42857 6.07872 1 5 1C3.92128 1 2.92246 1.42857 2.16336 2.24286C0.765013 3.7 0.605202 6.48571 1.80378 8.15714L5 13L8.19622 8.15714C9.3948 6.44286 9.23499 3.7 7.83664 2.24286Z' stroke='%23003DFF' stroke-width='1.5' stroke-miterlimit='10'/%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  &__description {
+    &:not(:last-child) {
+      margin-bottom: 48px;
+
+      @include mobile {
+        margin-bottom: 32px;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 140%;
+      margin-bottom: 32px;
+      transition: all 0.5s ease;
+      overflow: hidden;
+      max-height: 1111px;
+
+      // .program-item__description-text--is-short-text
+      &--is-short-text {
+        max-height: 135px ;
+
+        @include tablet {
+          max-height: 103px ;
+        }
+        @include mobile {
+          max-height: 87px ;
+        }
+      }
+
+      @include tablet {
+        font-size: 18px;
+      }
+
+      @include mobile {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+    }
+
+    &-detail {
+      cursor: pointer;
+    }
+
+    &-btns {
+      display: flex;
+      align-items: center;
+    }
+
+    &-show {
+      text-decoration: none;
+      color: $white-true;
+      background-color: $bg-brand;
+      border-radius: 20px;
+      margin-right: 24px;
+      padding: 6px 14px;
+      transition: 0.3s ease;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: $black-true;
+        color: $white-true;
+      }
+    }
+  }
+
+  &__persons {
+    margin-bottom: 48px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+
+    & > li {
+      &:not(:last-child) {
+        margin-bottom: 12px;
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    border: 1px solid $black-true;
+    border-radius: 12px;
+    padding: 0 8px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.4;
+    color: $black-true;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
+}
+
+#{$c} {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    @include mobile {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0;
+
+    @include tablet {
+      font-size: 20px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  .swiper-container {
+    @include tablet {
+      overflow: visible;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 8px;
+
+    @include mobile {
+      min-height: 335px;
+      padding: 16px 16px 24px;
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+
+    @include mobile {
+      flex: 1 1 auto;
+      padding: 0;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 180px;
+
+    @include mobile {
+      width: 90px;
+      margin: 0 0 16px;
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 140%;
+    margin-bottom: 8px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__position {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 8px;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    text-decoration: underline;
+    margin-top: auto;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: $text-brand;
+    }
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  .swiper-container {
+    margin: 0;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  &__controls {
+    display: flex;
+    margin-left: auto;
+    background-color: #003dff;
+    width: max-content;
+    border-radius: 20px;
+    align-items: center;
+
+    @include mobile {
+      display: none;
+    }
+
+    & > * {
+      cursor: pointer;
+    }
+  }
+
+  .slider__count {
+    color: #ffffff;
+  }
+}

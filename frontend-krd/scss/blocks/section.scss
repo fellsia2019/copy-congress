@@ -1,0 +1,142 @@
+$b: ".section";
+
+#{$b} {
+  background-color: #edeffa;
+
+  @include low-desktop {
+    overflow: hidden;
+  }
+  &_overlap-padding {
+    & + & {
+      #{$b}__inner {
+        padding-top: 0;
+      }
+    }
+  }
+  &_overflow {
+    overflow: hidden;
+  }
+  &__inner {
+    @include inner-wrap;
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include mobile {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    &._no-pb {
+      padding-bottom: 0;
+
+      @include low-desktop {
+        padding-bottom: 0;
+      }
+      @include mobile {
+        padding-bottom: 0;
+      }
+    }
+
+    &._low-padding-top {
+      padding-top: 45px;
+    }
+
+    &._no-padding-top {
+      padding-top: 0;
+    }
+
+    &-subbanner {
+      padding-bottom: 70px;
+    }
+  }
+  &__title {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 32px;
+    font-family: $font-family-heading;
+    text-transform: uppercase;
+    @include low-desktop {
+      font-size: 42px;
+    }
+    @include mobile {
+      font-size: 26px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    &_flex {
+      display: flex;
+      justify-content: space-between;
+
+      @include mobile {
+        flex-direction: column;
+        justify-content: stretch;
+      }
+    }
+  }
+  &__subtitle {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-transform: none;
+    margin: 0;
+
+    a {
+      color: $bg-brand;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &__button-wrap {
+    display: flex;
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
+
+    .button {
+      @include mobile {
+        width: 50%;
+      }
+
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__subbanner {
+    text-align: right;
+    margin-left: 150px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+
+    .button_brand {
+      margin-top: 15px;
+      color: #ffffff !important;
+      text-decoration: none !important;
+
+      &:hover {
+        color: $bg-brand !important;
+      }
+    }
+
+    @include tablet {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+
+  &__map {
+    position: relative;
+    height: 800px;
+
+    @include mobile {
+      height: 600px;
+    }
+  }
+}

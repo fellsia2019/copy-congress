@@ -1,0 +1,105 @@
+.page-404 {
+  position: relative;
+  z-index: 0;
+  height: 100vh;
+  display: block;
+  background: linear-gradient(106.27deg, rgba(7, 41, 135, 0.7) 0%, rgba(7, 41, 135, 0) 100%), #203B87;
+  color: $white-true;
+
+  &::before {
+    content: "";
+    @include full-abs;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(29, 56, 135, 0) 0%, #102250 100%);
+    opacity: 0.5;
+  }
+
+  .figures {
+    @include full-abs;
+    z-index: -2;
+  }
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__center {
+    width: 670px;
+    margin: auto;
+    text-align: center;
+
+    @include mobile {
+      width: 240px;
+    }
+  }
+
+  &__title {
+    width: 490px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 0;
+    font-weight: 700;
+    font-size: 220px;
+    line-height: 1;
+    margin: 0 auto 33px;
+    color: $white-true;
+
+    @include mobile {
+      width: 230px;
+      font-size: 100px;
+      margin-bottom: 26px;
+    }
+
+    @supports (-webkit-text-stroke: 1px $white-true) {
+      -webkit-text-stroke: 1px $white-true;
+      color: transparent;
+    }
+
+    &-figure {
+      width: 263px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      z-index: -1;
+      margin: 0 auto;
+
+      @include mobile {
+        width: 132px;
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 28px;
+    line-height: 1.8;
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    p {
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    a {
+      color: $color-base;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

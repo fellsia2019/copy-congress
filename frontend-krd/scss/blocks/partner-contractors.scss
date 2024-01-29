@@ -1,0 +1,19 @@
+$b: '.partner-contractors';
+
+#{$b} {
+  margin-top: 40px;
+
+  // .partner-contractors__header
+  &__header {
+    margin-bottom: 32px;
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
+  }
+
+  // .partner-contractors__title
+  &__title {
+    margin: 0;
+  }
+}

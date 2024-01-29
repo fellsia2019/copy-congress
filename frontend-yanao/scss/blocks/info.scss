@@ -1,0 +1,128 @@
+$b: ".info";
+
+#{$b} {
+  padding-bottom: 80px;
+  background: url(../assets/img/info-bg.png) center no-repeat;
+  background-size: cover;
+  @include low-desktop {
+    background-size: 1360px auto;
+    background-position: bottom 0 left 0;
+  }
+  @include tablet {
+    padding-bottom: 40px;
+    background: url(../assets/img/info-bg-tablet.png) bottom 0 left 50% no-repeat;
+    background-size: 100% auto;
+  }
+  @include mobile {
+    background: #ffffff;
+  }
+  &__title {
+    margin-bottom: 80px;
+    @include mobile {
+      margin-bottom: 30px;
+    }
+  }
+  &__cols {
+    display: flex;
+    flex-wrap: wrap;
+    @include mobile {
+      display: block;
+    }
+  }
+  &__col {
+    flex-shrink: 0;
+    @include mobile {
+      width: auto!important;
+    }
+    &:first-child {
+      width: 60%;
+      padding-right: 70px;
+      @include tablet {
+        padding-right: 20px;
+      }
+      @include mobile {
+        padding: 0;
+        margin-bottom: 30px;
+      }
+    }
+    &:nth-child(2) {
+      width: 40%;
+      padding-top: 34px;
+      border-top: 2px solid $bg-brand;
+      @include mobile {
+        padding-top: 20px;
+      }
+    }
+    h3 {
+      font-size: 32px;
+      font-weight: 600;
+      @include low-desktop {
+        font-size: 24px;
+      }
+      @include mobile {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    }
+    p {
+      font-size: 22px;
+      @include tablet {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+    }
+  }
+  &__left-text {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    ul:not([class]) {
+      list-style: disc;
+      padding-left: 40px;
+
+      @include mobile {
+        padding-left: 30px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+  &__right-text {
+    font-size: 20px;
+    line-height: 1.5;
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .button:not(.button_square) {
+    @include mobile {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,198 @@
+@use "sass:math";
+
+$b: ".about";
+
+#{$b} {
+  position: relative;
+  z-index: 0;
+  background-color: $light-blue;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  &::before {
+    width: 1230px;
+    height: 462px;
+    top: 0;
+    left: 0;
+    background-image: url("../assets/img/about-bg-lines.png");
+  }
+  &::after {
+    width: 594px;
+    height: 458px;
+    bottom: 0;
+    right: 0;
+    background-image: url("../assets/img/about-bg-circle.png");
+
+    @include mobile {
+      display: none;
+    }
+  }
+  &__inner {
+    h2 {
+      margin-bottom: 32px;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include mobile {
+        margin-bottom: 20px;
+      }
+    }
+    p {
+      font-weight: normal;
+      font-size: 32px;
+      line-height: 140%;
+
+      @include tablet {
+        font-size: 24px;
+      }
+
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+    p:not(:last-of-type) {
+      margin-bottom: 0.6em;
+    }
+  }
+  .button {
+    margin-top: 32px;
+    @include mobile {
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+
+  &-participants,
+  &-advantages {
+    color: $black-true;
+    &:not(:first-child) {
+      margin-top: 64px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 64px;
+    }
+
+    .responsive-slider {
+      &:not(.is-slider) {
+        .swiper-wrapper {
+          .swiper-slide,
+          swiper-slide {
+            width: math.div(100%, 5);
+
+            @include low-desktop {
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+
+    &__text {
+      margin-bottom: 64px;
+    }
+  }
+
+  &-participant {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $black-true;
+
+    &.is-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: $bg-brand;
+      color: $white-true;
+      padding: 24px 48px;
+      height: 120px;
+      border-radius: 100px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.2;
+      transition: .3s ease;
+      transition-property: color, background-color;
+
+      &:hover,
+      &:focus {
+        background-color: $white-true;
+        color: $bg-brand;
+      }
+
+      svg {
+        width: 10px;
+        height: 8px;
+      }
+    }
+
+    &__button-text {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &__icon {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e5eafb;
+      border-radius: 100px;
+
+      & > img {
+        max-height: 80%;
+        max-width: 80%;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+
+    &__title {
+      display: block;
+      margin: 0;
+    }
+  }
+
+  &-advantage {
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    color: $black-true;
+    border-left: 2px solid rgba($black-true, 0.1);
+    padding: 0 0 30px 24px;
+
+    &__num {
+      font-family: $font-family-heading;
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: $bg-brand;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &__title {
+      display: block;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,197 @@
+$b: ".partners";
+
+#{$b} {
+  &-section {
+    background: $dark url(../assets/img/partners-bg.png) center no-repeat;
+    background-size: cover;
+    color: $white-true;
+    @include tablet {
+      background-size: cover;
+    }
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  &-slider {
+    position: relative;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+    #{$b}__button {
+      margin-top: 25px;
+      width: 330px;
+      z-index: 1;
+
+      @include tablet {
+        margin-top: 20px;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  a#{$b}-slide {
+    text-decoration: none;
+    color: inherit;
+    transition: .3s ease;
+    transition-property: background-color, color;
+  }
+  &-text {
+    max-width: 988px;
+    font-size: 22px;
+    line-height: 1.6;
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+  &-slide {
+    display: block;
+    position: relative;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 0 32px;
+    margin-top: 32px;
+    width: 100%;
+    @include tablet {
+      padding: 0 0 30px;
+    }
+    @include mobile {
+      padding-top: 20px;
+    }
+    &_dark {
+      #{$b}-slide__image {
+        box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.05);
+        &::before {
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.7) 100%);
+          opacity: 0.85;
+          backdrop-filter: blur(40px);
+        }
+        &:hover {
+          color: $white-true;
+          background-color: $bg-brand;
+          img {
+            filter: invert(0);
+          }
+        }
+      }
+    }
+    &__image {
+      position: relative;
+      height: 200px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      padding: 30px;
+      justify-content: center;
+      transition: all .3s ease;
+      border-radius: 5px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        @include full-abs;
+        z-index: -1;
+        background: url(../assets/img/slide-bg.png) center no-repeat;
+        background-size: 100% 100%;
+        opacity: 0.9;
+        transition: .3s ease;
+        border-radius: 5px;
+
+        @include tablet {
+          opacity: 1;
+          background: rgba($white-true, 0.05);
+        }
+      }
+      &:hover {
+        color: $white-true;
+
+        &::before {
+          background-color: $bg-brand;
+          background-image: none;
+          backdrop-filter: none;
+          opacity: 1;
+        }
+
+        #{$b}-slide__image {
+          img {
+            filter: invert(0);
+          }
+        }
+      }
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include mobile {
+        margin-bottom: 20px;
+      }
+      #{$b}-slide_dark & {
+        img {
+          filter: invert(1);
+        }
+        transition: filter .3s ease;
+        background-color: #ffffff;
+
+        &:before {
+          display: none;
+        }
+      }
+      &_wide {
+        img {
+          height: auto;
+        }
+      }
+    }
+    &__name {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      position: relative;
+      @include mobile {
+        font-size: 12px;
+      }
+    }
+    &__status {
+      margin-top: 12px;
+      font-size: 12px;
+    }
+  }
+  &-section-main {
+    .slider {
+      @include tablet {
+        margin-bottom: 45px;
+      }
+      @include mobile {
+        margin-bottom: 25px;
+        padding-bottom: 0;
+      }
+    }
+    .section__inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .partners-slide {
+      margin-top: 0;
+
+      @include tablet {
+        padding: 0;
+      }
+
+      &__image {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
